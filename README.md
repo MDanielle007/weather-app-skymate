@@ -52,7 +52,6 @@ Ensure you have the following installed:
 1. Clone the repository:
    ```bash
    git clone https://github.com/MDanielle007/Vite-VueJS-PrimeVue-V4-Boilterplate.git
-   cd my-vite-vuejs-app
    ```
 
 2. Install dependencies:
