@@ -22,7 +22,7 @@ const presets = {
 export default {
   data() {
     return {
-      iconClass: 'pi-moon',
+      iconClass: 'pi-sun',
     }
   },
   methods: {

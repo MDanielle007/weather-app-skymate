@@ -8,6 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
+    CurrentWeatherCard: typeof import('./src/components/CurrentWeatherCard.vue')['default']
+    Divider: typeof import('primevue/divider')['default']
+    Fieldset: typeof import('primevue/fieldset')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
@@ -16,14 +20,11 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SelectButton: typeof import('primevue/selectbutton')['default']
+    Select: typeof import('primevue/select')['default']
+    Skeleton: typeof import('primevue/skeleton')['default']
     ThemeSwitcher: typeof import('./src/components/ThemeSwitcher.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
-    Toast: typeof import('primevue/toast')['default']
-    ToggleSwitch: typeof import('primevue/toggleswitch')['default']
+    Weather5Days: typeof import('./src/components/Weather5Days.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    StyleClass: typeof import('primevue/styleclass')['default']
   }
 }
