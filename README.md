@@ -1,111 +1,129 @@
-# Vite Vue.js Boilerplate
+# SkyMate
 
-This repository serves as a boilerplate for setting up a Vite-based Vue.js project with modern tooling and best practices. It comes preconfigured with the following features:
+SkyMate is a modern weather forecasting web application built using **Vue.js**, **PrimeVue**, **Tailwind CSS**, and the **OpenWeatherMap API**. It provides users with detailed and visually appealing weather forecasts for cities around the world.
 
-- **Vue Router** for client-side routing
-- **Pinia** for state management
-- **PrimeVue V4** with TailwindCSS integration for UI components
-- **ESLint** and **Prettier** for code linting and formatting
-- **Vitest** for unit testing
-- **Cypress** for end-to-end testing
+## Features
+
+- **Real-Time Weather Data**: Displays up-to-date weather forecasts fetched from the OpenWeatherMap API.
+- **City Information**: Shows city details such as coordinates, population, and timezone.
+- **Responsive Design**: Optimized for all devices using Tailwind CSS.
+- **Interactive UI**: Enhanced user experience with PrimeVue components.
+- **Dark Mode Support**: Seamless dark mode integration using Tailwind CSS.
+
+## Technologies Used
+
+- **Vue.js**: JavaScript framework for building the user interface.
+- **PrimeVue**: UI component library for Vue.js.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **OpenWeatherMap API**: Provides weather data and forecasts.
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/MDanielle007/weather-app-skymate.git
+   cd weather-app-skymate
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Create an `.env` file in the root directory and add your OpenWeatherMap API key:
+
+   ```env
+   VITE_OPENWEATHER_API_KEY=your_api_key_here
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the app in your browser at `http://localhost:5173`.
+
 
 ## Project Structure
 
 ```plaintext
-├── cypress/               # Cypress E2E test configuration and tests
-├── public/                # Static assets
-├── src/                   # Source files
-│   ├── assets/            # Static assets for the app
-│   ├── components/        # Reusable Vue components
-│   ├── plugins/           # Vue plugins (e.g., PrimeVue setup)
-│   ├── router/            # Vue Router configuration
-│   ├── stores/            # Pinia stores for state management
-│   ├── views/             # Vue views or pages
-│   ├── App.vue            # Root Vue component
-│   ├── main.js            # Application entry point
-├── .editorconfig          # Editor configuration for consistent coding styles
-├── .gitignore             # Git ignore rules
-├── .prettierrc.json       # Prettier configuration
-├── components.d.ts        # TypeScript declarations for auto-imported components
-├── cypress.config.js      # Cypress configuration file
-├── eslint.config.js       # ESLint configuration file
-├── index.html             # HTML template for the app
-├── jsconfig.json          # JS config for IDE support
-├── package-lock.json      # NPM dependency lock file
-├── package.json           # NPM package configuration
-├── postcss.config.js      # PostCSS configuration for TailwindCSS
-├── README.md              # Project documentation
-├── tailwind.config.js     # TailwindCSS configuration
-├── vite.config.js         # Vite configuration
-├── vitest.config.js       # Vitest configuration file
+src/
+├── assets/         # Static assets
+├── components/     # Vue components
+├── views/          # Application pages
+├── App.vue         # Root Vue component
+├── main.js         # Entry point
+├── styles/         # Tailwind CSS custom styles
+└── .env            # API key configuration
 ```
 
-## Prerequisites
+## Tailwind CSS Dark Mode Configuration
 
-Ensure you have the following installed:
+SkyMate supports dark mode using Tailwind CSS. To enable dark mode:
 
-- [Node.js](https://nodejs.org/) (version 16 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MDanielle007/Vite-VueJS-PrimeVue-V4-Boilterplate.git
+1. Add the `dark` class to the `html` element.
+2. Tailwind CSS configuration (`tailwind.config.js`):
+   ```javascript
+   module.exports = {
+     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+     darkMode: ['selector', '[class="p-dark"]'],
+     plugins: [require('tailwindcss-primeui')],
+   }
    ```
 
-2. Install dependencies:
+## Deployment
+
+1. Build the application for production:
+
    ```bash
-   npm install
-   # or
-   yarn install
+   npm run build
    ```
 
-3. Start the development server:
+2. Deploy the contents of the `dist/` folder to your preferred hosting service (e.g., Vercel, Netlify).
+
+## API Integration
+
+SkyMate uses the OpenWeatherMap API to fetch weather data. You need an API key to access the service. Sign up for free at [OpenWeatherMap](https://openweathermap.org/) and obtain your API key.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   git checkout -b feature-name
    ```
-
-4. Open your browser and navigate to `http://localhost:5173/`.
-
-## Available Scripts
-
-- **`npm run dev`**: Starts the development server.
-- **`npm run build`**: Builds the project for production.
-- **`npm run preview`**: Previews the production build.
-- **`npm run lint`**: Lints the codebase using ESLint.
-- **`npm run test:unit`**: Runs unit tests with Vitest.
-- **`npm run test:e2e`**: Runs end-to-end tests with Cypress.
-
-## Configuration
-
-### ESLint and Prettier
-
-- ESLint is configured to enforce consistent code quality.
-- Prettier is used for automatic code formatting. Configuration is located in `.prettierrc.json`.
-
-### TailwindCSS
-
-TailwindCSS is configured via `tailwind.config.js` and integrated with PrimeVue for utility-first styling.
-
-### PrimeVue Setup
-
-PrimeVue components are pre-configured with Tailwind integration. Add additional components as needed in the `src/plugins/primevue.js`.
-
-### Testing
-
-#### Unit Tests
-Vitest is used for unit testing. Test files are placed alongside the source files or in a `__tests__` folder.
-
-#### End-to-End Tests
-Cypress is configured for E2E testing. Add test specs in the `cypress/e2e` folder.
+3. Commit your changes:
+   ```bash
+   git commit -m "Add some feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Feel free to customize this boilerplate as needed for your projects!
+### Screenshots
+
+Add screenshots of the application here to showcase its features.
+
+---
+
+### Acknowledgments
+
+- **Vue.js** for its intuitive and powerful framework.
+- **PrimeVue** for the elegant UI components.
+- **Tailwind CSS** for the flexible styling.
+- **OpenWeatherMap** for providing weather data.
+
+For any queries or issues, feel free to raise an issue in the repository or contact the maintainers.
